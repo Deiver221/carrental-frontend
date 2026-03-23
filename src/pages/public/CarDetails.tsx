@@ -156,7 +156,10 @@ export default function CarDetails() {
               {/* Hero Image */}
               <div className="relative rounded-2xl overflow-hidden aspect-video">
                 <img
-                  src={`${APP_URL_D}/storage/${car.image}`}
+                  src={car.image.startsWith('http') 
+                        ? car.image 
+                        : `${APP_URL_D}/storage/${car.image}`
+                      }
                   alt={car.model}
                   className="w-full h-full object-cover"
                 />

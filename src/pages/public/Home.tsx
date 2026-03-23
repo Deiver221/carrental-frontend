@@ -212,7 +212,10 @@ export default function Home() {
                     {/* Imagen */}
                     <div className="relative h-56 overflow-hidden">
                       <img
-                        src={`${APP_URL_D}/storage/${car.image}`}
+                        src={car.image.startsWith('http') 
+                        ? car.image 
+                        : `${APP_URL_D}/storage/${car.image}`
+                      }
                         alt={car.model}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />

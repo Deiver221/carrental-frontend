@@ -261,7 +261,10 @@ export default function ManageCars() {
                           <td className="px-6 py-4">
                             <div className="flex items-center gap-4">
                               <img
-                                src={`${APP_URL_D}/storage/${car.image}`}
+                                src={car.image.startsWith('http') 
+                                  ? car.image 
+                                  : `${APP_URL_D}/storage/${car.image}`
+                                }
                                 alt={car.model}
                                 className="w-20 h-14 object-cover rounded-xl shrink-0"
                               />

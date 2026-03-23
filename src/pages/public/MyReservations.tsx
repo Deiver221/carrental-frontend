@@ -234,7 +234,10 @@ export default function MyReservations() {
                       {/* Image */}
                       <div className="w-full md:w-56 h-40 rounded-xl bg-neutral-800 overflow-hidden shrink-0">
                         <img
-                          src={`${APP_URL_D}/storage/${res.car.image}`}
+                          src={res.car.image.startsWith('http') 
+                        ? res.car.image 
+                        : `${APP_URL_D}/storage/${res.car.image}`
+                      }
                           alt={res.car.model}
                           className="w-full h-full object-cover"
                         />
