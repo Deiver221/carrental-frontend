@@ -379,10 +379,13 @@ export default function MyReservations() {
                             <div className="flex items-center gap-3">
                               <div className="w-16 h-12 rounded-lg bg-neutral-800 overflow-hidden shrink-0">
                                 <img
-                                  src={`${APP_URL_D}/storage/${res.car.image}`}
-                                  alt={res.car.model}
-                                  className="w-full h-full object-cover"
-                                />
+                          src={res.car.image.startsWith('http') 
+                        ? res.car.image 
+                        : `${APP_URL_D}/storage/${res.car.image}`
+                      }
+                          alt={res.car.model}
+                          className="w-full h-full object-cover"
+                        />
                               </div>
                               <div>
                                 <p className="text-sm font-bold text-white">
