@@ -104,8 +104,13 @@ VITE_API_URL=http://localhost:8000
 
 ## 📸 Screenshots
 
+### Home
 ![Home](./src/assets/Home.png)
+
+### Mis reservas
 ![Reservations](./src/assets/Reservations.png)
+
+### Admin Dashboard
 ![Admin Dashboard](./src/assets/AdminDashboard.png)
 
 ---
