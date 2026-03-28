@@ -7,6 +7,7 @@ Aplicación web fullstack para la gestión de alquiler de vehículos. Permite a 
 ## 🌐 Demo
 
 Frontend: https://carrental-frontend-wfto-125h40yvc-deiver221s-projects.vercel.app/
+
 Backend API: https://carrental-backend-rsan.onrender.com
 
 ### Credenciales de prueba
@@ -82,7 +83,7 @@ Backend API: https://carrental-backend-rsan.onrender.com
 
 ### Frontend
 
-git clone https://github.com/TU-USUARIO/carrental-frontend
+git clone https://github.com/Deiver221/carrental-frontend
 cd carrental-frontend
 npm install
 npm run dev
