@@ -1,73 +1,116 @@
-# React + TypeScript + Vite
+# CarRental 🚗
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación web fullstack para la gestión de alquiler de vehículos. Permite a los usuarios explorar autos, realizar reservas y a los administradores gestionar el negocio mediante un panel con estadísticas en tiempo real.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌐 Demo
 
-## React Compiler
+Frontend: https://carrental-frontend-wfto-125h40yvc-deiver221s-projects.vercel.app/
+Backend API: https://carrental-backend-rsan.onrender.com
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Credenciales de prueba
 
-## Expanding the ESLint configuration
+**Admin**
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+* Email: [admin@example.com]
+* Password: password
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+**Usuario**
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+* Email: [cliente@example.com]
+* Password: password
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## ⚙️ Tecnologías
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Frontend
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+* React
+* Vite
+* TailwindCSS
+* Recharts
+
+### Backend
+
+* Laravel
+* PostgreSQL
+* API REST
+* Autenticación con JWT
+
+### Deploy
+
+* Vercel (Frontend)
+* Render (Backend)
+
+---
+
+## 🚀 Funcionalidades
+
+### Usuario
+
+* Registro e inicio de sesión
+* Búsqueda de vehículos por nombre o marca (insensible a mayúsculas/minúsculas)
+* Filtros por categoría y marca
+* Visualización de detalles del vehículo
+* Sistema de reservas con validación de disponibilidad por fechas
+
+### Administrador
+
+* Panel administrativo con métricas del negocio
+* Visualización de ingresos mensuales mediante gráficos
+* Gestión completa de vehículos:
+
+  * Crear, editar, eliminar
+  * Activar / desactivar publicaciones
+* Gestión de reservas de usuarios
+
+---
+
+## 🧠 Arquitectura
+
+* Aplicación desacoplada (frontend y backend independientes)
+* Comunicación mediante API REST
+* Autenticación basada en tokens JWT
+* Base de datos PostgreSQL en la nube
+* Deploy en servicios separados para frontend y backend
+
+---
+
+## 🛠️ Instalación local
+
+### Frontend
+
+git clone https://github.com/TU-USUARIO/carrental-frontend
+cd carrental-frontend
+npm install
+npm run dev
+
+### Variables de entorno
+
+VITE_API_URL=http://localhost:8000
+
+---
+
+## ⚠️ Notas
+
+* La base de datos se reinicia en cada despliegue para mantener datos de prueba consistentes.
+* Las imágenes de los vehículos se cargan desde URLs externas.
+* El backend está desplegado en Render y puede tardar unos segundos en responder si está inactivo (cold start).
+* Algunas funcionalidades dependen de datos generados automáticamente mediante seeders.
+
+---
+
+## 📸 Screenshots
+
+![Home](./src/assets/Home.png)
+![Reservations](./src/assets/Reservations.png)
+![Admin Dashboard](./src/assets/AdminDashboard.png)
+
+---
+
+## 📌 Autor
+
+**Deiverrr**
+GitHub: https://github.com/Deiver221
