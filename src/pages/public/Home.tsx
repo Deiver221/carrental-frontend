@@ -27,6 +27,7 @@ export default function Home() {
   const [page, setPage] = useState(1)
   const [lastPage, setLastPage] = useState(1)
   const [loading, setLoading] = useState(true)
+  const [showWakeMessage, setShowWakeMessage] = useState(false)
   const [search, setSearch] = useState("")
   const [brands, setBrands] = useState<any[]>([])
   const [categories, setCategories] = useState<any[]>([])
@@ -51,6 +52,8 @@ export default function Home() {
 
   useEffect(() => {
     setLoading(true)
+    setShowWakeMessage(false)
+    const wakeMessageDelay = setTimeout(() => setShowWakeMessage(true), 2000)
     const fetchCars = async () => {
       const params = new URLSearchParams({ search, brand, category, page: String(page) })
       const response = await fetch(`${APP_URL}/public/cars?${params}`)
@@ -58,9 +61,14 @@ export default function Home() {
       setCars(data.data)
       setLastPage(data.last_page)
       setLoading(false)
+      setShowWakeMessage(false)
+      clearTimeout(wakeMessageDelay)
     }
     const delay = setTimeout(fetchCars, 500)
-    return () => clearTimeout(delay)
+    return () => {
+      clearTimeout(delay)
+      clearTimeout(wakeMessageDelay)
+    }
   }, [search, brand, category, page])
 
   const resetFilters = () => {
@@ -192,9 +200,20 @@ export default function Home() {
 
           {/* Header del grid */}
           <div className="flex items-center justify-between mb-8">
-            <h2 className="font-syne font-bold text-white text-xl">
-              {loading ? "Cargando..." : `${cars.length} vehículo${cars.length !== 1 ? "s" : ""} encontrado${cars.length !== 1 ? "s" : ""}`}
-            </h2>
+            <div>
+              <h2 className="font-syne font-bold text-white text-xl">
+                {loading
+                  ? showWakeMessage
+                    ? "Waking up the server..."
+                    : "Cargando..."
+                  : `${cars.length} vehículo${cars.length !== 1 ? "s" : ""} encontrado${cars.length !== 1 ? "s" : ""}`}
+              </h2>
+              {loading && showWakeMessage && (
+                <p className="text-neutral-500 text-sm mt-1">
+                  This may take up to 30 seconds on the first request.
+                </p>
+              )}
+            </div>
             <span className="text-neutral-500 text-sm">
               Página {page} de {lastPage}
             </span>
